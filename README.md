@@ -19,8 +19,53 @@ To use the module you need to install [Opauth](http://opauth.org/) and one of it
 
 If you install LfjOpauth using `composer`, the Opauth dependecy is automatically resolved, but you still must provide at least one strategy.
 
+Example using composer, composer.json:
+
+```javascript
+{
+    "repositories": [
+
+        {
+            "type": "package",
+            "package": {
+                "name": "ape-box/LfjOpauth",
+                "version": "master",
+                "source": {
+                    "url": "https://github.com/ape-box/LfjOpauth.git",
+                    "type": "git",
+                    "reference": "master"
+                }
+            }
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3",
+        "zendframework/zendframework": "2.*",
+        "opauth/opauth": "*",
+        "opauth/facebook": "dev-master",
+        "ape-box/LfjOpauth": "master"
+    }
+}
+```
+
+
 Configuration
 -----
+
+Add to your application.config.php:
+
+```php
+'modules' => array(
+    ...
+    'LfjOpauth',
+),
+
+'module_listener_options' => array(
+    'module_paths' => array(
+        ...
+        './vendor/ape-box',
+    ),
+```
 
 Once LfjOpauth is installed you must create a file named `lfjopauth.global.php` in your `config/autoload` directory. This is the configuration file where you specify the LfjOpauth options.
 
